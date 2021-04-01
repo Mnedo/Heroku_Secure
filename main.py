@@ -317,6 +317,6 @@ def work_log():
             categ[sc[0]] = idd
     return render_template('work_log.html', title="Work log", jobs=jobs, cat=categ)
 
-
 if __name__ == '__main__':
-    app.run(port=5000, host='127.0.0.1')
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
