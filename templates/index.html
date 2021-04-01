@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% if current_user.is_authenticated %}
+<a href="news" class="btn btn-secondary">Добавить новость</a>
+{% endif %}
+{% if current_user.is_authenticated %}
+<a href="jobs" class="btn btn-secondary">Добавить работу</a>
+{% endif %}
+{% if current_user.is_authenticated %}
+<a href="departments" class="btn btn-primary">Департаменты</a>
+{% endif %}
+{% if current_user.is_authenticated %}
+<a href="works_log" class="btn btn-info">Вспомогательная таблица
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill"
+         viewBox="0 0 16 16">
+        <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+    </svg>
+</a>
+{% endif %}
+<div style=”margin-bottom:120px;”>
+    <h1>Записи в блоге</h1>
+    {% for item in news%}
+    <div class="col-md6 border rounded">
+        <h2>{{item.title}}</h2>
+        <div>
+            {{item.content}}
+        </div>
+        <div>
+            Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
+        </div>
+        {% if current_user.is_authenticated and current_user == item.user %}
+        <div>
+            <a href="/news/{{ item.id }}" class="btn btn-warning">
+                Изменить
+            </a>
+            <a href="/news_delete/{{ item.id }}" class="btn btn-danger">
+                Удалить
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endfor %}
+
+
+<h1>Над чем мы работаем!!!</h1>
+{% for item in jobs%}
+<div class="col-md6 border rounded">
+    <h2>{{item.job}}</h2>
+    <div>
+        <p>{{item.work_size}} часов работы</p>
+    </div>
+    <div>
+        Автор - {{item.team_leader}}, Помогали - {{item.collaborators}}
+    </div>
+    {% if current_user.is_authenticated and current_user.id == item.team_leader or current_user.id == 1 %}
+    <div>
+        <a href="/jobs/{{ item.id }}" class="btn btn-warning">
+            Изменить
+        </a>
+        <a href="/jobs_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+{% endfor %}
+{% endblock %}
