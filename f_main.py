@@ -1,3 +1,5 @@
+import os
+
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_restful import abort
 from flask_wtf import FlaskForm
@@ -5,7 +7,7 @@ from werkzeug.utils import redirect
 from wtforms import PasswordField, BooleanField, SubmitField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired
-import os
+
 from data.users import User
 from flask import Flask, render_template, request
 from data import db_session
@@ -316,6 +318,7 @@ def work_log():
                 idd = el.name
             categ[sc[0]] = idd
     return render_template('work_log.html', title="Work log", jobs=jobs, cat=categ)
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
