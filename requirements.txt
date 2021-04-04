@@ -6,4 +6,3 @@ datetime
 flask_wtf
 wtforms
 flask_restful
-os
