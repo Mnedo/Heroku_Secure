@@ -5,7 +5,7 @@ from werkzeug.utils import redirect
 from wtforms import PasswordField, BooleanField, SubmitField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired
-
+import os
 from data.users import User
 from flask import Flask, render_template, request
 from data import db_session
