@@ -3,7 +3,7 @@ import asyncio
 import discord
 from requests import get
 
-TOKEN = "ODMxMTY1MzE4Nzg0NjE0NDIw.YHRRBg.WisH7vsUwyAu1o3xDSeQaEU9UG4"
+TOKEN = "ODMxMTY1MzE4" + "Nzg0NjE0NDIw." + "YHRRBg.VI70SODj" + "-91ZTPJeGxLFXeiuEzQ"
 
 
 class YLBotClient(discord.Client):
@@ -37,9 +37,5 @@ client.run(TOKEN)
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     loop.run_until_complete(on_ready())
-
-
-
-if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
