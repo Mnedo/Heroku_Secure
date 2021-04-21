@@ -3,7 +3,7 @@ import asyncio
 import discord
 from requests import get
 
-TOKEN = "ODMxMTY1MzE4" + "Nzg0NjE0NDIw." + "YHRRBg.VI70SODj" + "-91ZTPJeGxLFXeiuEzQ"
+TOKEN = ""
 
 
 class YLBotClient(discord.Client):
