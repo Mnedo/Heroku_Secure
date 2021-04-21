@@ -35,5 +35,6 @@ client = YLBotClient()
 client.run(TOKEN)
 
 if __name__ == '__main__':
+    print('run') 
     loop = asyncio.get_event_loop()
     loop.run_until_complete(on_ready())
