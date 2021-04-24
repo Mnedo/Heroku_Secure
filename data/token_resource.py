@@ -16,4 +16,7 @@ class TokenResource(Resource):
         abort_if_user_not_found(app_name)
         session = db_session.create_session()
         app = session.query(Token).filter(Token.app == app_name).first()
-        return app.token
+        result = app.token
+        app.token = 'has_requested'
+        session.commit()
+        return result
