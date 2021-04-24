@@ -33,6 +33,5 @@ class YLBotClient(discord.Client):
 
 client = YLBotClient()
 client.run(TOKEN)
-print(run)
-loop = asyncio.get_event_loop()
-loop.run_until_complete(on_ready())
+print('run')
+
