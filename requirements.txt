@@ -1,9 +1,5 @@
 sqlalchemy
 flask_login
 sqlalchemy_serializer
-werkzeug
-datetime
-flask_wtf
-wtforms
 flask_restful
-discord
+flask
